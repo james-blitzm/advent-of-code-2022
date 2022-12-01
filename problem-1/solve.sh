@@ -1,20 +1,11 @@
 #!/bin/bash
-
 v=0
 m=0
+t=0
 while read p;
 do
-if [[ $p = "" ]];
-then
-v=0;
-else
-v=$(($v + $p));
+[[ $p = "" ]] && v=0 || v=$(($v + $p))
 (($v > $m)) && m=$v
-fi
 done < input-data.txt
-# account for off-by-one
-if (($v > $m))
-then
-m=$v
-fi
+(($v > $m)) && m=$v
 echo $m
