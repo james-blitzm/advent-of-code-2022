@@ -9,10 +9,7 @@ then
 v=0;
 else
 v=$(($v + $p));
-if (($v > $m))
-then
-m=$v
-fi
+(($v > $m)) && m=$v
 fi
 done < input-data.txt
 # account for off-by-one
